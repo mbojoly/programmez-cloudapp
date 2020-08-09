@@ -5,12 +5,12 @@
 
 <div>
   <label for="nominal">Nominal:</label>
-  <input type="number" placeholder="1000000" [(ngModel)]="nominal" (blur)="updateModel()" />
+  <input type="number" placeholder="1000000" [(ngModel)]="nominal" (blur)="clearModel()" />
   <label for="duration">Duration (months):</label>
-  <input type="number" placeholder="12" [(ngModel)]="monthsDuration" (blur)="updateModel()" />
+  <input type="number" placeholder="12" [(ngModel)]="monthsDuration" (blur)="clearModel()" />
   <label for="duration">Interest rate (%):</label>
-  <input type="number" placeholder="2.0" [(ngModel)]="interestRate" (blur)="updateModel()" />
-  <button (click)="updateSchedule()">Compute schedule</button>
+  <input type="number" placeholder="2.0" [(ngModel)]="interestRate" (blur)="clearModel()" />
+  <button (click)="renderSchedule()">Compute schedule</button>
 </div>
 
 <div>
