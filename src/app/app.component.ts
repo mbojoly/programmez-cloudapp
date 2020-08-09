@@ -39,7 +39,7 @@ export class AppComponent {
   }
 
   computeInteresteAmount(principal:number, interestRate:number, periodNbOfMonths: number) : number {
-    return principal * interestRate * periodNbOfMonths * 30/360
+    return principal * interestRate/100 * periodNbOfMonths * 30/360
   }
 
   computeSchedule(): Schedule[] {
