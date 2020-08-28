@@ -10,7 +10,7 @@ interface WebFile {
   mimeType: string;
 }
 
-const DEPLOY_DIR= '../../hello-cloud-app/'
+const DEPLOY_DIR= '../../hello-cloud-app/dist/hello-angular/'
 
 class ProgrammezCloudAppStack extends TerraformStack {
   AWS_REGION = 'eu-west-3';
@@ -56,14 +56,16 @@ class FilesLister {
   private MIME_TYPE_PER_EXTENSION = new Map([
     ['html', 'text/html'],
     ['css', 'text/css'],
-    ['js', 'application/javascript']
+    ['js', 'application/javascript'],
+    ['ico', 'image/x-icon'],
+    ['txt', 'text/text']
   ]); 
   
   private findMimeTypeBasedOnExtension(files: string[]) : WebFile[] {
     return files.map(f =>  {
       const fileNameSplit = f.split('.')
       const extension = fileNameSplit[fileNameSplit.length -1]
-      return { name: f,  mimeType: this.MIME_TYPE_PER_EXTENSION.get(extension) ?? 'text/text' }
+      return { name: f,  mimeType: this.MIME_TYPE_PER_EXTENSION.get(extension) ?? 'text/plain' }
     })
   }
   
