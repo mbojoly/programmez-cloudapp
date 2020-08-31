@@ -1,25 +1,22 @@
-import { Component, Input } from '@angular/core';
-import { Schedule, computeSchedule } from './schedule-engine.service'
+import { Component, Input } from '@angular/core'; //1
+import { Schedule, computeSchedule } from './schedule-engine.service' //2
 
-@Component({
+@Component({ //3
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  counter: number = 0;
-  title : string = 'hello-angular';
-
-  nominal:number;
+  nominal:number; //4
   monthsDuration:number;
   interestRate:number;
   schedulePayments:Schedule[] = []
 
-  clearModel(): void {
+  clearModel(): void { //5
     this.schedulePayments = []
   }
 
-  renderSchedule():void {
+  renderSchedule():void { //6
     this.schedulePayments = computeSchedule({
       nominal:this.nominal,
       monthsDuration:this.monthsDuration,
