@@ -4,12 +4,12 @@
 </div>
 
 <div>
-  <label for="nominal">Nominal:</label>
-  <input type="number" placeholder="1000000" [(ngModel)]="nominal" (blur)="clearModel()" />
+  <label for="nominal">Nominal (EUR):</label>
+  <input type="number" placeholder="1000000" id="nominal" [(ngModel)]="nominal" (blur)="clearModel()" /> <!-- 1 -->
   <label for="duration">Duration (months):</label>
-  <input type="number" placeholder="12" [(ngModel)]="monthsDuration" (blur)="clearModel()" />
-  <label for="duration">Interest rate (%):</label>
-  <input type="number" placeholder="2.0" [(ngModel)]="interestRate" (blur)="clearModel()" />
+  <input type="number" placeholder="12" id="duration" [(ngModel)]="monthsDuration" (blur)="clearModel()" /> <!-- 1 -->
+  <label for="interestRate">Interest rate (%):</label>
+  <input type="number" placeholder="2.0" id="interestRate" [(ngModel)]="interestRate" (blur)="clearModel()" /> <!-- 1 -->
   <button (click)="renderSchedule()">Compute schedule</button>
 </div>
 
@@ -20,10 +20,10 @@
       <th>Type of Payment</th>
       <th>Payment</th>
     </tr>
-    <tr *ngFor="let payment of schedulePayments; index as i">
-      <td>{{payment.date.toDateString()}}</td>
-      <td>{{payment.type}}</td>
-      <td>{{payment.amount.toFixed(2)}}</td>
+    <tr *ngFor="let payment of schedulePayments; index as i"> <!-- 2 -->
+      <td>{{payment.date.toDateString()}}</td> <!-- 3 -->
+      <td>{{payment.type}}</td> <!-- 3 -->
+      <td>{{payment.amount.toFixed(2)}}</td> <!-- 3 -->
     </tr>
   </table>
 </div>
