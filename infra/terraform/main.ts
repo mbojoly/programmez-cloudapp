@@ -5,12 +5,12 @@ import { S3Bucket, S3BucketConfig } from './.gen/providers/aws/s3-bucket';
 import { S3BucketObject, S3BucketObjectConfig } from './.gen/providers/aws/s3-bucket-object';
 import * as fs from 'fs';
 
-interface WebFile {
+interface WebFile { //1
   name: string;
   mimeType: string;
 }
 
-const DEPLOY_DIR= '../../hello-cloud-app/dist/hello-angular/'
+const DEPLOY_DIR= '../../hello-cloud-app/dist/hello-angular/' //2
 
 class ProgrammezCloudAppStack extends TerraformStack {
   AWS_REGION = 'eu-west-3';
@@ -24,20 +24,20 @@ class ProgrammezCloudAppStack extends TerraformStack {
 
     this.deployDir = deployDir
     
-    new AwsProvider(this, 'aws', {
+    new AwsProvider(this, 'aws', { //3
       region: this.AWS_REGION
     });
 
-    const s3BucketConfig: S3BucketConfig =  {
+    const s3BucketConfig: S3BucketConfig =  { //4
       website: [{
         indexDocument: 'index.html',
         errorDocument: 'index.html'
       }],
       tags: { 'stack':'programmez-cloudapp-stack' }
     };
-    const s3Bucket = new S3Bucket(this, this.AWS_S3_BUCKET_NAME, s3BucketConfig);
+    const s3Bucket = new S3Bucket(this, this.AWS_S3_BUCKET_NAME, s3BucketConfig); //5
 
-    for(let webfile of webfiles) {
+    for(let webfile of webfiles) { //6
       console.log('file ' + webfile.name)
       const s3ObjectConfig: S3BucketObjectConfig = { 
         key: webfile.name, 
@@ -47,16 +47,16 @@ class ProgrammezCloudAppStack extends TerraformStack {
         bucket: s3Bucket.bucket ?? this.AWS_S3_BUCKET_NAME,
         tags: { 'stack':'programmez-cloudapp-stack' }
       } 
-      new S3BucketObject(this, webfile.name, s3ObjectConfig);
+      new S3BucketObject(this, webfile.name, s3ObjectConfig); //7
     }
   }
 
-  new TerraformOutput(this, 'Web site URL', {
+  new TerraformOutput(this, 'Web site URL', { //8
     value: s3Bucket.websiteEndpoint
   });
 }
 
-class FilesLister {
+class FilesLister { //9
   private MIME_TYPE_PER_EXTENSION = new Map([
     ['html', 'text/html'],
     ['css', 'text/css'],
@@ -79,8 +79,8 @@ class FilesLister {
   }
 }
 
-const app = new App();
+const app = new App(); //10
 const filesLister = new FilesLister();
 let webFiles: WebFile[] = filesLister.listFilesToDeploy(DEPLOY_DIR)
 new ProgrammezCloudAppStack(app, 'programmezCloudAppStack', DEPLOY_DIR, webFiles);
-app.synth();
+app.synth(); //11
