@@ -1,5 +1,5 @@
 import { Construct } from 'constructs';
-import { App, TerraformStack } from 'cdktf';
+import { App, TerraformStack, TerraformOutput } from 'cdktf';
 import { AwsProvider } from './.gen/providers/aws/aws-provider'
 import { S3Bucket, S3BucketConfig } from './.gen/providers/aws/s3-bucket';
 import { S3BucketObject, S3BucketObjectConfig } from './.gen/providers/aws/s3-bucket-object';
@@ -50,6 +50,10 @@ class ProgrammezCloudAppStack extends TerraformStack {
       new S3BucketObject(this, webfile.name, s3ObjectConfig);
     }
   }
+
+  new TerraformOutput(this, 'Web site URL', {
+    value: s3Bucket.websiteEndpoint
+  });
 }
 
 class FilesLister {
