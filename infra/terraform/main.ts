@@ -49,11 +49,11 @@ class ProgrammezCloudAppStack extends TerraformStack {
       } 
       new S3BucketObject(this, webfile.name, s3ObjectConfig); //7
     }
-  }
 
-  new TerraformOutput(this, 'Web site URL', { //8
-    value: s3Bucket.websiteEndpoint
-  });
+    new TerraformOutput(this, 'Web site URL', { //8
+      value: s3Bucket.websiteEndpoint
+    });
+  }
 }
 
 class FilesLister { //9
