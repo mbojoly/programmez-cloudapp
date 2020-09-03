@@ -20,7 +20,7 @@ function computeAmortization(nominal:number, monthsDuration:number) : number {
   return nominal / monthsDuration;
 }
 
-function computeInteresteAmount(principal:number, interestRate:number, periodNbOfMonths: number) : number {
+function computeInterestAmount(principal:number, interestRate:number, periodNbOfMonths: number) : number {
   return principal * interestRate/100 * periodNbOfMonths * 30/360
 }
 
@@ -36,7 +36,7 @@ export function computeSchedule(deal: Deal): Schedule[] {
   })
   for(let i:number = 1; i < deal.monthsDuration; i++) {
     const paymentDate:Date = new Date(startDate.getFullYear(), startDate.getMonth()+i, startDate.getDay())
-    const interestAmount:number = computeInteresteAmount(principal, deal.interestRate, 1)
+    const interestAmount:number = computeInterestAmount(principal, deal.interestRate, 1)
     schedule = schedule.concat({ 
       "date": paymentDate,
       "type": PaymentType.INTEREST,
