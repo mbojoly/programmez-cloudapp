@@ -34,7 +34,7 @@ export function computeSchedule(deal: Deal): Schedule[] {
     "type": PaymentType.DRAWING,
     "amount": -1*deal.nominal 
   })
-  for(let i:number = 1; i < deal.monthsDuration; i++) {
+  for(let i:number = 1; i <= deal.monthsDuration; i++) {
     const paymentDate:Date = new Date(startDate.getFullYear(), startDate.getMonth()+i, startDate.getDay())
     const interestAmount:number = computeInterestAmount(principal, deal.interestRate, 1)
     schedule = schedule.concat({ 
