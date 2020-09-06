@@ -1,30 +1,30 @@
-export enum PaymentType {
+export enum PaymentType { //1
   DRAWING = 'DRAWING',
   INTEREST = 'INTEREST',
   AMORTIZATION = 'AMORTIZATION'
 }
 
-export interface Schedule {
+export interface Schedule { //1
   date: Date
   type: PaymentType
   amount: number
 }
 
-export interface Deal {
+export interface Deal { //1
   nominal:number;
   monthsDuration:number;
   interestRate:number;
 }
 
-function computeAmortization(nominal:number, monthsDuration:number) : number {
+function computeAmortization(nominal:number, monthsDuration:number) : number { //2
   return nominal / monthsDuration;
 }
 
-function computeInterestAmount(principal:number, interestRate:number, periodNbOfMonths: number) : number {
+function computeInterestAmount(principal:number, interestRate:number, periodNbOfMonths: number) : number { //3
   return principal * interestRate/100 * periodNbOfMonths * 30/360
 }
 
-export function computeSchedule(deal: Deal): Schedule[] {
+export function computeSchedule(deal: Deal): Schedule[] { //4
   console.log(` ComputeSchedule with nominal ${deal.nominal}, duration ${deal.monthsDuration}, interest rate ${deal.interestRate}`)
   let schedule:Schedule[] = []
   const startDate:Date = new Date(Date.now())
