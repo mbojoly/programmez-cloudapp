@@ -1,6 +1,6 @@
 Bienvenue sur le repository de l'article **Démarrer dans le développement cloud** publié dans le magazine **Programmez**.
 
-Vous y trouverez le code source décrit ainsi que des liens vers des articles complémentaires pour approfondir les termes en bleu dans l'article.
+Vous y trouverez le code source décrit dans l'article et complété avec un test unitaire et un test d'intégration trop longs pour être décrits dans l'article. Vous trouverez aussi sur cett page des liens vers des articles complémentaires pour approfondir les termes notés en bleu dans l'article.
 
 | **Texte**                                                    | **Lien**                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

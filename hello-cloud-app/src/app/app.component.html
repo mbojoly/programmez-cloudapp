@@ -10,20 +10,21 @@
   <input type="number" placeholder="12" id="duration" [(ngModel)]="monthsDuration" (blur)="clearModel()" /> <!-- 1 -->
   <label for="interestRate">Interest rate (%):</label>
   <input type="number" placeholder="2.0" id="interestRate" [(ngModel)]="interestRate" (blur)="clearModel()" /> <!-- 1 -->
-  <button (click)="renderSchedule()">Compute schedule</button>
+  <button class="btnComputeSchedule" (click)="renderSchedule()">Compute schedule</button>
 </div>
 
 <div>
   <table>
+    <caption>Schedule table</caption>
     <tr>
-      <th>Month</th>
-      <th>Type of Payment</th>
-      <th>Payment</th>
+      <th scope="col">Month</th>
+      <th scope="col">Type of Payment</th>
+      <th scope="col">Payment</th>
     </tr>
     <tr *ngFor="let payment of schedulePayments; index as i"> <!-- 2 -->
-      <td>{{payment.date.toDateString()}}</td> <!-- 3 -->
-      <td>{{payment.type}}</td> <!-- 3 -->
-      <td>{{payment.amount.toFixed(2)}}</td> <!-- 3 -->
+      <td class="pDate">{{payment.date.toDateString()}}</td> <!-- 3 -->
+      <td class="pType">{{payment.type}}</td> <!-- 3 -->
+      <td class="pAmount">{{payment.amount.toFixed(2)}}</td> <!-- 3 -->
     </tr>
   </table>
 </div>
