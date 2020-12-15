@@ -81,6 +81,6 @@ class FilesLister { //9
 
 const app = new App(); //10
 const filesLister = new FilesLister();
-let webFiles: WebFile[] = filesLister.listFilesToDeploy(DEPLOY_DIR)
+let webFiles: WebFile[] = filesLister.listFilesToDeploy(DEPLOY_DIR);
 new ProgrammezCloudAppStack(app, 'programmezCloudAppStack', DEPLOY_DIR, webFiles);
 app.synth(); //11
