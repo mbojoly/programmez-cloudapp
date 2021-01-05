@@ -3,7 +3,7 @@ Bienvenue sur le repository de l'article **Démarrer dans le développement cl
 Vous y trouverez des mises à jour après la mise sous presse le code source décrit dans l'article et complété avec un test unitaire et un test d'intégration trop longs pour être décrits dans l'article. Vous trouverez aussi sur cette page des liens vers des articles complémentaires pour approfondir les termes notés en bleu dans l'article.
 
 ## ERRATA
-### Si vous démarrez le codespace de GitHub sur en ayant forké mes 2 repositories
+### Si vous démarrez le codespace de GitHub en ayant forké mes 2 repositories
 - `aws-cli` est préinstallé (par la présence du repository 'dotfiles'). Si vous suivez strictement l'article les messages suivants sont donc normaux. Vous pouvez poursuivre en utilisant le flag `--update`.
 ```
 codespace ➜ ~/workspace/programmez-cloudapp (master ✗) $ ./aws/install -i ~/aws-cli/ -b ~/bin
