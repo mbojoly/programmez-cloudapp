@@ -3,14 +3,17 @@ Bienvenue sur le repository de l'article **Démarrer dans le développement cl
 Vous y trouverez des mises à jour après la mise sous presse le code source décrit dans l'article et complété avec un test unitaire et un test d'intégration trop longs pour être décrits dans l'article. Vous trouverez aussi sur cette page des liens vers des articles complémentaires pour approfondir les termes notés en bleu dans l'article.
 
 ## ERRATA
-- `aws-cli` est préinstallé en utilisant le codespace de GitHub (par la présence du repository 'dotfiles'). Si vous suivez strictement l'article les messages suivants sont donc normaux. Vous pouvez poursuivre en utilisant le flag `--update`.
+### Si vous démarrez le codespace de GitHub sur en ayant forké mes 2 repositories
+- `aws-cli` est préinstallé (par la présence du repository 'dotfiles'). Si vous suivez strictement l'article les messages suivants sont donc normaux. Vous pouvez poursuivre en utilisant le flag `--update`.
 ```
 codespace ➜ ~/workspace/programmez-cloudapp (master ✗) $ ./aws/install -i ~/aws-cli/ -b ~/bin
 Found preexisting AWS CLI installation: /home/codespace/aws-cli//v2/current. Please rerun install script with --update flag.
 codespace ➜ ~/workspace/programmez-cloudapp (master ✗) $ ./aws/install -i ~/aws-cli/ -b ~/bin --update
 Found same AWS CLI version: /home/codespace/aws-cli//v2/2.1.15. Skipping install.
 ```
+- Dans le projet `infra/terraform`, ne pas oublier la commande `cdktf get` sinon cela provoque des erreurs de compilation sur `npm install` (la commande `cdktf init --template=typescript --local` s'en charge si vous suivez la totalité du déroulé).
 
+### Nettoyage
 - Pour supprimer simplement l'application créée et ne plus payer la facture AWS (quelques centimes par mois) vous pouvez utiliser cette commande et confirmer par `yes` :
 ```
 codespace ➜ ~/workspace/programmez-cloudapp/infra/terraform (master ✗) $ cdktf destroy
