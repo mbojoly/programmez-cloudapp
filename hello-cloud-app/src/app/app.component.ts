@@ -7,9 +7,9 @@ import { Schedule, computeSchedule } from './schedule-engine.service'; // 2
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  nominal: number; // 4
-  monthsDuration: number;
-  interestRate: number;
+  nominal: number = 0; // 4
+  monthsDuration: number = 0;
+  interestRate: number = 0;
   schedulePayments: Schedule[] = [];
 
   clearModel(): void { // 5

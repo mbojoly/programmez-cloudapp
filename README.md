@@ -3,6 +3,14 @@ Bienvenue sur le repository de l'article **Démarrer dans le développement cl
 Vous y trouverez des mises à jour après la mise sous presse le code source décrit dans l'article et complété avec un test unitaire et un test d'intégration trop longs pour être décrits dans l'article. Vous trouverez aussi sur cette page des liens vers des articles complémentaires pour approfondir les termes notés en bleu dans l'article.
 
 ## ERRATA
+### Nouvelle version Angular
+Si vous obtenez des erreurs de ce type avec la dernière version d'Angular `Error: src/app/app.component.ts:10:3 - error TS2564: Property 'nominal' has no initializer and is not definitely assigned in the constructor.`, ajoutez une valeur par défaut à ces variables.
+```
+nominal: number = 0; // 4
+monthsDuration: number = 0;
+interestRate: number = 0;
+```
+
 ### Si vous démarrez le codespace de GitHub en ayant forké mes 2 repositories
 - `aws-cli` est préinstallé (par la présence du repository 'dotfiles'). Si vous suivez strictement l'article les messages suivants sont donc normaux. Vous pouvez poursuivre en utilisant le flag `--update`.
 ```
