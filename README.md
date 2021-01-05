@@ -18,6 +18,7 @@ Found same AWS CLI version: /home/codespace/aws-cli//v2/2.1.15. Skipping install
 ```
 codespace ➜ ~/workspace/programmez-cloudapp/infra/terraform (master ✗) $ cdktf destroy
 ```
+- Après vous être déconnecté, pensez à retourner sur codespace pour supprimer définitivement du codespace et ne pas payer son stockage.
 
 ## Articles complémentaires
 
